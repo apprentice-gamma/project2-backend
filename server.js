@@ -8,7 +8,7 @@ mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/project2-backe
 // Brings in the routes
 
 var dictators = require('./routes/dictators');
-// var users = require('./app/routes/users');
+
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -31,7 +31,7 @@ var port = process.env.PORT || 8080; // set our port
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 
-app.use('/api', dictators);
+app.use('/api/dictators', dictators);
 // app.use('/api', bookmarks);
 
 // START THE SERVER

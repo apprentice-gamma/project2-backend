@@ -9,7 +9,7 @@ var HouseholdSchema = new mongoose.Schema({
 	"zip code": {type: Number},
 	"state": {type: String},
 	"number of bathrooms": {type: Number},
-	"favorite pizza": {type: String, required: true}
+	"favorite pizza": {type: String, required: true},
 	"party house": {type: Boolean}
 });
 
