@@ -49,14 +49,12 @@ router.post('/:id/households', function(req, res, next){
 });
 
 // GET single household
-router.get('/:id/households/:household_id', function (req, res, next){
-	Dictator.findById(req.params.id, function(err, dictator){
-		dictator.owned_households.findById(req.params.household_id, function(err, household){
-			if (err) return next (err);
-			res.json(household);
-		});
-	});
-});
+router.get('/:id/households/:household_id', function (req, res, next) {
+ 	Dictator.findOne({_id: req.params.id}, {owned_households: {$elemMatch: {_id: req.params.household_id}}}, function(err, house) {
+		if (err) return next (err);
+		res.json(house.owned_households[0]);
+ 	});
+ });
 
 //DELETE for now
 router.delete('/:id', function (req, res, next){
