@@ -31,7 +31,7 @@ router.get('/:id', function(req, res, next){
 router.get('/:id/households', function(req, res, next){
 	Dictator.findById(req.params.id, function (err, dictator){
 		if(err) return next (err);
-		res.json(dictator["owned households"]);
+		res.json(dictator.owned_households);
 	});
 });
 
@@ -39,7 +39,7 @@ router.get('/:id/households', function(req, res, next){
 router.post('/:id/households', function(req, res, next){
 	Dictator.findById(req.params.id, function (err, dictator){
 		Household.create(req.body, function(err, newHousehold){
-			dictator['owned households'].push(newHousehold);
+			dictator.owned_households.push(newHousehold);
 			dictator.save(function (err){
 				if (err) return next (err);
 				res.json({message: "This worked!"});
@@ -50,7 +50,11 @@ router.post('/:id/households', function(req, res, next){
 
 // GET single household
 router.get('/:id/households/:household_id', function (req, res, next){
-	Dictator.find({_id: req.params.id}, {'owned households'_id: req.params.household_id})
+	Dictator.find({_id: req.params.id}, {'owned_household._id': req.params.household_id}, function(err, household){
+		if (err) return next (err);
+		res.json(household);
+	});
+
 });
 
 
