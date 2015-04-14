@@ -50,12 +50,20 @@ router.post('/:id/households', function(req, res, next){
 
 // GET single household
 router.get('/:id/households/:household_id', function (req, res, next){
-	Dictator.find({_id: req.params.id}, {'owned_household._id': req.params.household_id}, function(err, household){
-		if (err) return next (err);
-		res.json(household);
+	Dictator.findById(req.params.id, function(err, dictator){
+		dictator.owned_households.findById(req.params.household_id, function(err, household){
+			if (err) return next (err);
+			res.json(household);
+		});
 	});
-
 });
 
+//DELETE for now
+router.delete('/:id', function (req, res, next){
+	Dictator.findByIdAndRemove(req.params.id, req.body, function (err, dictator){
+		if (err) return next(err);
+		res.json(dictator);
+	});
+});
 
 module.exports = router;
