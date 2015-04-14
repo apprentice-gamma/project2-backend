@@ -48,5 +48,10 @@ router.post('/:id/households', function(req, res, next){
 	});
 });
 
+// GET single household
+router.get('/:id/households/:household_id', function (req, res, next){
+	Dictator.find({_id: req.params.id}, {'owned households'_id: req.params.household_id})
+});
+
 
 module.exports = router;
