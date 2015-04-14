@@ -65,7 +65,7 @@ router.delete('/:id', function (req, res, next){
 	});
 });
 
-//post all users for a household
+//post users for a household
 router.post('/:id/households/:household_id/users', function(req, res, next) {
 	Resident.create(req.body, function(err, newUser){
 		if (err) return next (err);
@@ -85,10 +85,19 @@ router.post('/:id/households/:household_id/users', function(req, res, next) {
 					res.json({message: "This worked!"});
 				})
 			} else {
-				res.json(message:"Something went wrong!");
+				res.json({message:"Something went wrong!"});
 			}
 		})
 	})
 })
+
+//GET all Users for a household
+router.get('/:id/households/:household_id/users', function (req, res, next) {
+ 	Dictator.findOne({_id: req.params.id}, {owned_households: {$elemMatch: {_id: req.params.household_id}}}, function(err, house) {
+		if (err) return next (err);
+		res.json(house.owned_households[0].residents);
+ 	});
+ });
+
 
 module.exports = router;
