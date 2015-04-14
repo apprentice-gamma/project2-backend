@@ -11,7 +11,13 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST dictator listing */
+router.post('/', function(req, res, next){
+	Dictator.create(req.body, function(err, newDictator){
+		if (err) return next(err);
+		res.json(newDictator);
+	});
 
+});
 
 
 module.exports = router;
