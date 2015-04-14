@@ -3,11 +3,11 @@ var app = express(); // define our app using express
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/project1-backend');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/project2-backend');
 
 // Brings in the routes
 
-// var bookmarks = require('./app/routes/bookmarks');
+var dictators = require('./routes/dictators');
 // var users = require('./app/routes/users');
 
 // configure app to use bodyParser()
@@ -31,7 +31,7 @@ var port = process.env.PORT || 8080; // set our port
 // REGISTER OUR ROUTES -------------------------------
 // all of our routes will be prefixed with /api
 
-// app.use('/api', users);
+app.use('/api', dictators);
 // app.use('/api', bookmarks);
 
 // START THE SERVER
