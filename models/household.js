@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var uniqueValidator = require('mongoose-unique-validator');
+var User = require('./users.js');
 
 var HouseholdSchema = new mongoose.Schema({
 	residents: [],
