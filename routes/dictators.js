@@ -57,13 +57,13 @@ router.get('/:id/households/:household_id', function (req, res, next) {
  	});
  });
 
-//DELETE for now
-router.delete('/:id', function (req, res, next){
-	Dictator.findByIdAndRemove(req.params.id, req.body, function (err, dictator){
-		if (err) return next(err);
-		res.json(dictator);
-	});
-});
+// //DELETE for now
+// router.delete('/:id', function (req, res, next){
+// 	Dictator.findByIdAndRemove(req.params.id, req.body, function (err, dictator){
+// 		if (err) return next(err);
+// 		res.json(dictator);
+// 	});
+// });
 
 //post users for a household
 router.post('/:id/households/:household_id/users', function(req, res, next) {
