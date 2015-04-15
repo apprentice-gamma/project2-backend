@@ -51,7 +51,7 @@ router.post('/:id/households', function(req, res, next){
 
 // GET single household
 router.get('/:id/households/:household_id', function (req, res, next) {
- 	Dictator.findOne({_id: req.params.id}, {owned_households: {$elemMatch: {_id: req.params.household_id}}}, function(err, house) {
+ 	Dictator.findOne({_id: req.params.id}, {owned_households: {$elemMatch: {house_id: req.params.household_id}}}, function(err, house) {
 		if (err) return next (err);
 		res.json(house.owned_households[0]);
  	});
@@ -73,8 +73,8 @@ router.post('/:id/households/:household_id/users', function(req, res, next) {
 			if (err) return next (err);
 			var valid = false;
 			dictator.owned_households.forEach(function(household){
-				console.log(household._id);
-				if (household._id == req.params.household_id) {
+				console.log(household.house_id);
+				if (household.house_id == req.params.household_id) {
 					household.residents.push(newUser);
 					valid = true;
 				}
@@ -93,7 +93,7 @@ router.post('/:id/households/:household_id/users', function(req, res, next) {
 
 //GET all Users for a household
 router.get('/:id/households/:household_id/users', function (req, res, next) {
- 	Dictator.findOne({_id: req.params.id}, {owned_households: {$elemMatch: {_id: req.params.household_id}}}, function(err, house) {
+ 	Dictator.findOne({_id: req.params.id}, {owned_households: {$elemMatch: {house_id: req.params.household_id}}}, function(err, house) {
 		if (err) return next (err);
 		res.json(house.owned_households[0].residents);
  	});
