@@ -22,7 +22,6 @@ The node_modules folder is not included in the repo, however the package.json fi
 Here is a tutorial on how to install MongoDB and then how to set up mongoDB locally and finally how to create documents which basically means "putting stuff in your batabase so you can see it."
 
 ####Try this quickstart first...
-
 MongoDB Quick Install/Setup Guide - Assumes you have Homebrew installed.
 
 ```$ brew update``` to make sure it's aware of the latest version of Mongo
