@@ -9,6 +9,7 @@ GET single dictator http://project2-backend.herokuapp.com/api/dictators/:id
 
 ####Household
 GET/POST owned_households http://project2-backend.herokuapp.com/api/dictators/:id/households
+
 GET  single owned_household http://project2-backend.herokuapp.com/api/dictators/:id/households/:id
 
 ####User
