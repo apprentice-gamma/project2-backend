@@ -3,7 +3,7 @@ var uniqueValidator = require('mongoose-unique-validator');
 var User = require('./users.js');
 
 var HouseholdSchema = new mongoose.Schema({
-	residents: [],
+	residents: [ User.schema ],
 	household_income: {type: Number},
 	street: {type: String},
 	city: {type: String},
