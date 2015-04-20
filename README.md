@@ -1,6 +1,50 @@
 #Project Two Backend Team
 This is the repo for three front-end teams making different apps based off of the data provided. The database was populated using faker.js and garbage.js. Garbage.js was implemented to make it slightly more difficult for the front-end teams by giving them data they were not expecting. 
 
+#Schema for Data
+####Dictator object
+dictator_name: string required
+
+owned_households: [household data]
+
+facial_hair: string required
+
+at_war: boolean
+
+####Household object
+residents: [ user objects]
+
+household_income: numbers
+
+street: string
+
+city: string
+
+zip_code: number
+
+state: string
+
+number_of_bathrooms: number
+
+favorite_pizza: string required
+
+party_house: boolean 
+
+####User object
+first_name: string required
+
+last_name: string required
+
+alias: string
+
+espionage_loyalty: string
+
+age: number
+
+gender: string
+
+email: string
+
 #Endpoints for All Teams
 ####Dictator
 GET/POST dictators http://project2-backend.herokuapp.com/api/dictators
