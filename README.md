@@ -2,8 +2,7 @@
 This is the repo for three front-end teams making different apps based off of the data provided. The database was populated using faker.js and garbage.js. Garbage.js was implemented to make it slightly more difficult for the front-end teams by giving them data they were not expecting. 
 
 #Schema for Data
-Dictator object
-
+####Dictator object
 dictator_name: string required
 
 owned_households: [household data]
@@ -12,9 +11,7 @@ facial_hair: string required
 
 at_war: boolean
 
-
-Household object
-
+####Household object
 residents: [ user objects]
 
 household_income: numbers
@@ -33,9 +30,7 @@ favorite_pizza: string required
 
 party_house: boolean 
 
-
-user object
-
+####User object
 first_name: string required
 
 last_name: string required
